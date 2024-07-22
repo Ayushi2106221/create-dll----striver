@@ -1,0 +1,25 @@
+class Solution {
+  public:
+
+    Node* constructDLL(vector<int>& arr) {
+        Node *head=NULL;
+        Node *tail=NULL;
+        int size=arr.size();
+        for(int i=0;i<size;i++){
+            Node *add=new Node(arr[i]);
+            add->next=NULL;
+            if(head==NULL){
+                  head=add;
+                  tail=add;
+                  add->prev=NULL;
+                  }
+            else{
+              tail->next=add;
+              add->prev=tail;
+              tail=add;
+        }
+        
+        }
+        return head;
+    }
+};
